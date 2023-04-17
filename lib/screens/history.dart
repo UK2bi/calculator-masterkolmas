@@ -30,8 +30,9 @@ class _HistoryScreenState extends State<HistoryScreen> {
             builder: (BuildContext context,
                 AsyncSnapshot<List<CalculationHistory>> snapshot) {
               if (snapshot.hasData) {
-                return Expanded(
+                return Scrollbar(
                   child: ListView.builder(
+                    shrinkWrap: true,
                     itemCount: snapshot.data!.length,
                     itemBuilder: (BuildContext context, int index) {
                       return ListTile(
@@ -51,3 +52,5 @@ class _HistoryScreenState extends State<HistoryScreen> {
     );
   }
 }
+
+

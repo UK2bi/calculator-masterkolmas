@@ -56,14 +56,13 @@ class CalculatorLogic {
 
   double computeResult() {
     double result = double.parse(equationStack[0]);
-    for (int i = 1; i < equationStack.length; i++) {
-      String input = equationStack[i];
+    for (String input in equationStack.sublist(1)) {
       if (input == "+" || input == "-" || input == "X" || input == "/") {
-        continue; // Skip over operators
+        operand = input;
+        continue;
       }
       double num = double.parse(input);
-      String op = equationStack[i - 1];
-      switch(op) {
+      switch(operand) {
         case "+":
           result += num;
           break;
